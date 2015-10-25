@@ -32,17 +32,17 @@
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.TempTrackBar = new System.Windows.Forms.TrackBar();
             this.RainTrackBar = new System.Windows.Forms.TrackBar();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.pictureBox5 = new System.Windows.Forms.PictureBox();
-            this.pictureBox6 = new System.Windows.Forms.PictureBox();
+            this.SelectSpring = new System.Windows.Forms.PictureBox();
+            this.SelectWinterSuit = new System.Windows.Forms.PictureBox();
+            this.SelectSummer = new System.Windows.Forms.PictureBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.tempLabel = new System.Windows.Forms.Label();
             this.body = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.TempTrackBar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.RainTrackBar)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.SelectSpring)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.SelectWinterSuit)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.SelectSummer)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.body)).BeginInit();
             this.SuspendLayout();
@@ -77,31 +77,42 @@
             this.RainTrackBar.TabIndex = 7;
             this.RainTrackBar.Scroll += new System.EventHandler(this.RainTrackBar_Scroll);
             // 
-            // pictureBox1
+            // SelectSpring
             // 
-            this.pictureBox1.Location = new System.Drawing.Point(106, 366);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(92, 63);
-            this.pictureBox1.TabIndex = 8;
-            this.pictureBox1.TabStop = false;
+            this.SelectSpring.BackColor = System.Drawing.Color.Transparent;
+            this.SelectSpring.Image = global::GetDressed.Properties.Resources.sprcomf;
+            this.SelectSpring.Location = new System.Drawing.Point(118, 337);
+            this.SelectSpring.Name = "SelectSpring";
+            this.SelectSpring.Size = new System.Drawing.Size(63, 92);
+            this.SelectSpring.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.SelectSpring.TabIndex = 8;
+            this.SelectSpring.TabStop = false;
+            this.SelectSpring.Click += new System.EventHandler(this.SelectSpringSuit_Click);
             // 
-            // pictureBox5
+            // SelectWinterSuit
             // 
-            this.pictureBox5.BackColor = System.Drawing.SystemColors.Control;
-            this.pictureBox5.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.pictureBox5.Location = new System.Drawing.Point(204, 366);
-            this.pictureBox5.Name = "pictureBox5";
-            this.pictureBox5.Size = new System.Drawing.Size(92, 63);
-            this.pictureBox5.TabIndex = 9;
-            this.pictureBox5.TabStop = false;
+            this.SelectWinterSuit.BackColor = System.Drawing.Color.Transparent;
+            this.SelectWinterSuit.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.SelectWinterSuit.Image = global::GetDressed.Properties.Resources.wincomf;
+            this.SelectWinterSuit.Location = new System.Drawing.Point(198, 337);
+            this.SelectWinterSuit.Name = "SelectWinterSuit";
+            this.SelectWinterSuit.Size = new System.Drawing.Size(55, 92);
+            this.SelectWinterSuit.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.SelectWinterSuit.TabIndex = 9;
+            this.SelectWinterSuit.TabStop = false;
+            this.SelectWinterSuit.Click += new System.EventHandler(this.SelectWinterSuit_Click);
             // 
-            // pictureBox6
+            // SelectSummer
             // 
-            this.pictureBox6.Location = new System.Drawing.Point(8, 366);
-            this.pictureBox6.Name = "pictureBox6";
-            this.pictureBox6.Size = new System.Drawing.Size(92, 63);
-            this.pictureBox6.TabIndex = 10;
-            this.pictureBox6.TabStop = false;
+            this.SelectSummer.BackColor = System.Drawing.Color.Transparent;
+            this.SelectSummer.Image = global::GetDressed.Properties.Resources.sumcomf;
+            this.SelectSummer.Location = new System.Drawing.Point(49, 337);
+            this.SelectSummer.Name = "SelectSummer";
+            this.SelectSummer.Size = new System.Drawing.Size(51, 92);
+            this.SelectSummer.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.SelectSummer.TabIndex = 10;
+            this.SelectSummer.TabStop = false;
+            this.SelectSummer.Click += new System.EventHandler(this.SelectSummerSuit_Click);
             // 
             // pictureBox2
             // 
@@ -126,13 +137,12 @@
             this.tempLabel.TabIndex = 12;
             this.tempLabel.Text = "0°";
             this.tempLabel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.tempLabel.Click += new System.EventHandler(this.tempLabel_Click);
             // 
             // body
             // 
             this.body.BackColor = System.Drawing.Color.Transparent;
             this.body.Image = ((System.Drawing.Image)(resources.GetObject("body.Image")));
-            this.body.Location = new System.Drawing.Point(75, 91);
+            this.body.Location = new System.Drawing.Point(93, 91);
             this.body.Name = "body";
             this.body.Size = new System.Drawing.Size(106, 240);
             this.body.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -149,9 +159,9 @@
             this.Controls.Add(this.body);
             this.Controls.Add(this.tempLabel);
             this.Controls.Add(this.pictureBox2);
-            this.Controls.Add(this.pictureBox6);
-            this.Controls.Add(this.pictureBox5);
-            this.Controls.Add(this.pictureBox1);
+            this.Controls.Add(this.SelectSummer);
+            this.Controls.Add(this.SelectWinterSuit);
+            this.Controls.Add(this.SelectSpring);
             this.Controls.Add(this.RainTrackBar);
             this.Controls.Add(this.TempTrackBar);
             this.Controls.Add(this.comboBox1);
@@ -163,9 +173,9 @@
             this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.TempTrackBar)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.RainTrackBar)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.SelectSpring)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.SelectWinterSuit)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.SelectSummer)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.body)).EndInit();
             this.ResumeLayout(false);
@@ -178,9 +188,9 @@
         private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.TrackBar TempTrackBar;
         private System.Windows.Forms.TrackBar RainTrackBar;
-        private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.PictureBox pictureBox5;
-        private System.Windows.Forms.PictureBox pictureBox6;
+        private System.Windows.Forms.PictureBox SelectSpring;
+        private System.Windows.Forms.PictureBox SelectWinterSuit;
+        private System.Windows.Forms.PictureBox SelectSummer;
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.Label tempLabel;
         private System.Windows.Forms.PictureBox body;

@@ -81,26 +81,38 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\settings.png" />
+    <EmbeddedResource Include="Resources\settings.png" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Resources\Sunny.PNG" />
+    <EmbeddedResource Include="Resources\warmdry.png" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Resources\cold.PNG" />
-    <EmbeddedResource Include="Resources\varm.PNG" />
+    <EmbeddedResource Include="Resources\colddry.png" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Resources\snow_cold.PNG" />
+    <EmbeddedResource Include="Resources\coldsnow.png" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Resources\rain.PNG" />
+    <EmbeddedResource Include="Resources\warmrain.png" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Resources\kall.PNG" />
+    <EmbeddedResource Include="Resources\sumcold.png" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Resources\perfect.PNG" />
+    <EmbeddedResource Include="Resources\sumcomf.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\wincomf.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\sprcold.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\sprcomf.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\sprwarm.png" />
+    <EmbeddedResource Include="Resources\winwarm.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
