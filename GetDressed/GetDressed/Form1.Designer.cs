@@ -28,25 +28,23 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.TempTrackBar = new System.Windows.Forms.TrackBar();
-            this.HeadPictureBox = new System.Windows.Forms.PictureBox();
-            this.TorsoPictureBox = new System.Windows.Forms.PictureBox();
-            this.LegsPictureBox = new System.Windows.Forms.PictureBox();
             this.RainTrackBar = new System.Windows.Forms.TrackBar();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.pictureBox5 = new System.Windows.Forms.PictureBox();
             this.pictureBox6 = new System.Windows.Forms.PictureBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.tempLabel = new System.Windows.Forms.Label();
+            this.body = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.TempTrackBar)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.HeadPictureBox)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.TorsoPictureBox)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.LegsPictureBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.RainTrackBar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.body)).BeginInit();
             this.SuspendLayout();
             // 
             // comboBox1
@@ -68,30 +66,7 @@
             this.TempTrackBar.TabIndex = 5;
             this.TempTrackBar.TickFrequency = 5;
             this.TempTrackBar.Value = 10;
-            // 
-            // HeadPictureBox
-            // 
-            this.HeadPictureBox.Location = new System.Drawing.Point(84, 77);
-            this.HeadPictureBox.Name = "HeadPictureBox";
-            this.HeadPictureBox.Size = new System.Drawing.Size(136, 67);
-            this.HeadPictureBox.TabIndex = 4;
-            this.HeadPictureBox.TabStop = false;
-            // 
-            // TorsoPictureBox
-            // 
-            this.TorsoPictureBox.Location = new System.Drawing.Point(84, 141);
-            this.TorsoPictureBox.Name = "TorsoPictureBox";
-            this.TorsoPictureBox.Size = new System.Drawing.Size(136, 103);
-            this.TorsoPictureBox.TabIndex = 5;
-            this.TorsoPictureBox.TabStop = false;
-            // 
-            // LegsPictureBox
-            // 
-            this.LegsPictureBox.Location = new System.Drawing.Point(84, 240);
-            this.LegsPictureBox.Name = "LegsPictureBox";
-            this.LegsPictureBox.Size = new System.Drawing.Size(136, 109);
-            this.LegsPictureBox.TabIndex = 6;
-            this.LegsPictureBox.TabStop = false;
+            this.TempTrackBar.Scroll += new System.EventHandler(this.TempTrackBar_Scroll);
             // 
             // RainTrackBar
             // 
@@ -100,6 +75,7 @@
             this.RainTrackBar.Orientation = System.Windows.Forms.Orientation.Vertical;
             this.RainTrackBar.Size = new System.Drawing.Size(45, 104);
             this.RainTrackBar.TabIndex = 7;
+            this.RainTrackBar.Scroll += new System.EventHandler(this.RainTrackBar_Scroll);
             // 
             // pictureBox1
             // 
@@ -130,45 +106,68 @@
             // pictureBox2
             // 
             this.pictureBox2.BackColor = System.Drawing.Color.Transparent;
-            this.pictureBox2.BackgroundImage = global::GetDressed.Properties.Resources.settings;
             this.pictureBox2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.pictureBox2.Image = global::GetDressed.Properties.Resources.settings;
             this.pictureBox2.Location = new System.Drawing.Point(256, 12);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(40, 40);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox2.TabIndex = 11;
             this.pictureBox2.TabStop = false;
+            // 
+            // tempLabel
+            // 
+            this.tempLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.tempLabel.BackColor = System.Drawing.Color.Transparent;
+            this.tempLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tempLabel.Location = new System.Drawing.Point(247, 65);
+            this.tempLabel.Name = "tempLabel";
+            this.tempLabel.Size = new System.Drawing.Size(49, 32);
+            this.tempLabel.TabIndex = 12;
+            this.tempLabel.Text = "0°";
+            this.tempLabel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.tempLabel.Click += new System.EventHandler(this.tempLabel_Click);
+            // 
+            // body
+            // 
+            this.body.BackColor = System.Drawing.Color.Transparent;
+            this.body.Image = ((System.Drawing.Image)(resources.GetObject("body.Image")));
+            this.body.Location = new System.Drawing.Point(75, 91);
+            this.body.Name = "body";
+            this.body.Size = new System.Drawing.Size(106, 240);
+            this.body.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.body.TabIndex = 13;
+            this.body.TabStop = false;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackgroundImage = global::GetDressed.Properties.Resources.desert;
+            this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(304, 441);
+            this.Controls.Add(this.body);
+            this.Controls.Add(this.tempLabel);
             this.Controls.Add(this.pictureBox2);
             this.Controls.Add(this.pictureBox6);
             this.Controls.Add(this.pictureBox5);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.RainTrackBar);
-            this.Controls.Add(this.LegsPictureBox);
-            this.Controls.Add(this.TorsoPictureBox);
-            this.Controls.Add(this.HeadPictureBox);
             this.Controls.Add(this.TempTrackBar);
             this.Controls.Add(this.comboBox1);
+            this.DoubleBuffered = true;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
             this.Name = "Form1";
             this.Text = "Get Dressed prototype";
             this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.TempTrackBar)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.HeadPictureBox)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.TorsoPictureBox)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.LegsPictureBox)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.RainTrackBar)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.body)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -178,14 +177,13 @@
 
         private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.TrackBar TempTrackBar;
-        private System.Windows.Forms.PictureBox HeadPictureBox;
-        private System.Windows.Forms.PictureBox TorsoPictureBox;
-        private System.Windows.Forms.PictureBox LegsPictureBox;
         private System.Windows.Forms.TrackBar RainTrackBar;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.PictureBox pictureBox5;
         private System.Windows.Forms.PictureBox pictureBox6;
         private System.Windows.Forms.PictureBox pictureBox2;
+        private System.Windows.Forms.Label tempLabel;
+        private System.Windows.Forms.PictureBox body;
     }
 }
 
