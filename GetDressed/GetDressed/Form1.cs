@@ -24,12 +24,39 @@ namespace GetDressed
         bool _rain = false;
         int _suit = 0; // 0 = summer suit, 1 = spring suit, 2 = winter suit
 
+        const int SummerSuit = 0;
+        const int SpringSuit = 1;
+        const int WinterSuit = 2;
+
         public Form1()
         {
             InitializeComponent();
             this.TempTrackBar.Value = _temp;
-            this.tempLabel.Text = _temp + "°";
+            this.TempLabel.Text = _temp + "°";
             this.RainTrackBar.Value = 0;
+        }
+
+        // Loads resources for the form.
+        private void Form1_Load(object sender, EventArgs e)
+        {
+            Assembly assembly = Assembly.GetExecutingAssembly();
+
+            // Loads images for weather
+            _coldDry = new Bitmap(assembly.GetManifestResourceStream("GetDressed.Resources.colddry.png"));
+            _coldSnowy = new Bitmap(assembly.GetManifestResourceStream("GetDressed.Resources.coldsnow.png"));
+            _warmDry = new Bitmap(assembly.GetManifestResourceStream("GetDressed.Resources.warmdry.png"));
+            _warmRainy = new Bitmap(assembly.GetManifestResourceStream("GetDressed.Resources.warmrain.png"));
+
+            // Loads images for bodies.
+            _summerSuitComfort = new Bitmap(assembly.GetManifestResourceStream("GetDressed.Resources.sumcomf.png"));
+            _summerSuitCold = new Bitmap(assembly.GetManifestResourceStream("GetDressed.Resources.sumcold.png"));
+
+            _springSuitWarm = new Bitmap(assembly.GetManifestResourceStream("GetDressed.Resources.sprwarm.png"));
+            _springSuitComfort = new Bitmap(assembly.GetManifestResourceStream("GetDressed.Resources.sprcomf.png"));
+            _springSuitCold = new Bitmap(assembly.GetManifestResourceStream("GetDressed.Resources.sprcold.png"));
+
+            _winterSuitWarm = new Bitmap(assembly.GetManifestResourceStream("GetDressed.Resources.winwarm.png"));
+            _winterSuitComfort = new Bitmap(assembly.GetManifestResourceStream("GetDressed.Resources.wincomf.png"));
         }
 
         // Updates the GUI-background according to weather conditions.
@@ -65,11 +92,14 @@ namespace GetDressed
         {
             switch (_suit)
             {
-                case 0: UseSummerSuit();
+                case SummerSuit:
+                    UseSummerSuit();
                     break;
-                case 1: UseSpringSuit();
+                case SpringSuit:
+                    UseSpringSuit();
                     break;
-                case 2: UseWinterSuit();
+                case WinterSuit:
+                    UseWinterSuit();
                     break;
             }
         }
@@ -77,22 +107,69 @@ namespace GetDressed
         // Selects summer suit
         private void SelectSummerSuit_Click(object sender, EventArgs e)
         {
-            _suit = 0;
+            _suit = SummerSuit;
             UpdatePerson();
         }
 
         // Selects spring suit
         private void SelectSpringSuit_Click(object sender, EventArgs e)
         {
-            _suit = 1;
+            _suit = SpringSuit;
             UpdatePerson();
+        }
+
+        private void TempLabel_Click(object sender, EventArgs e)
+        {
+
         }
 
         // Selects winter suit
         private void SelectWinterSuit_Click(object sender, EventArgs e)
         {
-            _suit = 2;
+            _suit = WinterSuit;
             UpdatePerson();
+        }
+
+        // Act on settings dialog
+        private void settingsIcon_click(object sender, EventArgs e)
+        {
+            SettingsDialog dialog = new SettingsDialog();
+            // If the user has clicked on button Get Dressed, change to
+            // suitable clothes based on selected weather conditions.
+            if (dialog.ShowDialog()) 
+            {
+                if (_rain)
+                {
+                    if (_temp < 15)
+                    {
+                        _suit = WinterSuit;
+                    }
+                    else if (_temp < 25)
+                    {
+                        _suit = SpringSuit;
+                    }
+                    else
+                    {
+                        _suit = WinterSuit;
+                    }
+                }
+                else
+                {
+                    if (_temp < 10)
+                    {
+                        _suit = WinterSuit;
+                    }
+                    else if (_temp < 20)
+                    {
+                        _suit = SpringSuit;
+                    }
+                    else
+                    {
+                        _suit = SummerSuit;
+                    }
+                }
+                UpdatePerson();
+            }
         }
 
         // Updates the appearance of the person in GUI wearing a
@@ -102,11 +179,11 @@ namespace GetDressed
             // If it rains and temp below 25 or otherwise if temp below 20
             if ((_rain && (_temp < 25)) || (_temp < 20))
             {
-                this.body.Image = _summerSuitCold;
+                this.Body.Image = _summerSuitCold;
             }
             else
             {
-                this.body.Image = _summerSuitComfort;
+                this.Body.Image = _summerSuitComfort;
             }
         }
 
@@ -116,15 +193,15 @@ namespace GetDressed
         {
             if ((_rain && (_temp < 15)) || (_temp < 10))
             {
-                this.body.Image = _springSuitCold;
+                this.Body.Image = _springSuitCold;
             }
             else if ((!_rain && (_temp > 20)) || (_temp > 25))
             {
-                this.body.Image = _springSuitWarm;
+                this.Body.Image = _springSuitWarm;
             }
             else
             {
-                this.body.Image = _springSuitWarm;
+                this.Body.Image = _springSuitComfort;
             }
         }
 
@@ -134,37 +211,15 @@ namespace GetDressed
         {
             if ((!_rain && (_temp > 10)) || (_temp > 15))
             {
-                this.body.Image = _winterSuitWarm;
+                this.Body.Image = _winterSuitWarm;
             }
             else
             {
-                this.body.Image = _winterSuitComfort;
+                this.Body.Image = _winterSuitComfort;
             }
         }
 
-        // Loads resources for the form.
-        private void Form1_Load(object sender, EventArgs e)
-        {
-            Assembly assembly = Assembly.GetExecutingAssembly();
-
-            // Loads images for weather
-            _coldDry = new Bitmap(assembly.GetManifestResourceStream("GetDressed.Resources.colddry.png"));
-            _coldSnowy = new Bitmap(assembly.GetManifestResourceStream("GetDressed.Resources.coldsnow.png"));
-            _warmDry = new Bitmap(assembly.GetManifestResourceStream("GetDressed.Resources.warmdry.png"));
-            _warmRainy = new Bitmap(assembly.GetManifestResourceStream("GetDressed.Resources.warmrain.png"));
-
-            // Loads images for bodies.
-            _summerSuitComfort = new Bitmap(assembly.GetManifestResourceStream("GetDressed.Resources.sumcomf.png"));
-            _summerSuitCold = new Bitmap(assembly.GetManifestResourceStream("GetDressed.Resources.sumcold.png"));
-
-            _springSuitWarm = new Bitmap(assembly.GetManifestResourceStream("GetDressed.Resources.sprwarm.png"));
-            _springSuitComfort = new Bitmap(assembly.GetManifestResourceStream("GetDressed.Resources.sprcomf.png"));
-            _springSuitCold = new Bitmap(assembly.GetManifestResourceStream("GetDressed.Resources.sprcold.png"));
-
-            _winterSuitWarm = new Bitmap(assembly.GetManifestResourceStream("GetDressed.Resources.winwarm.png"));
-            _winterSuitComfort = new Bitmap(assembly.GetManifestResourceStream("GetDressed.Resources.wincomf.png"));
-        }
-
+        // Response to changes in RainTrackBar
         private void RainTrackBar_Scroll(object sender, EventArgs e)
         {
             _rain = (this.RainTrackBar.Value > 5);
@@ -172,10 +227,11 @@ namespace GetDressed
             UpdatePerson();
         }
 
+        // Response to changes in TempTrackBar
         private void TempTrackBar_Scroll(object sender, EventArgs e)
         {
             _temp = this.TempTrackBar.Value;
-            this.tempLabel.Text = _temp + "°";
+            this.TempLabel.Text = _temp + "°";
             UpdateWeather();
             UpdatePerson();
         }
