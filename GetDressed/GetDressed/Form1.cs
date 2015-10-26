@@ -118,11 +118,6 @@ namespace GetDressed
             UpdatePerson();
         }
 
-        private void TempLabel_Click(object sender, EventArgs e)
-        {
-
-        }
-
         // Selects winter suit
         private void SelectWinterSuit_Click(object sender, EventArgs e)
         {
@@ -150,7 +145,7 @@ namespace GetDressed
                     }
                     else
                     {
-                        _suit = WinterSuit;
+                        _suit = SummerSuit;
                     }
                 }
                 else

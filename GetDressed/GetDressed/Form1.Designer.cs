@@ -39,7 +39,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.TempTrackBar = new System.Windows.Forms.TrackBar();
             this.RainTrackBar = new System.Windows.Forms.TrackBar();
             this.SelectSpring = new System.Windows.Forms.PictureBox();
@@ -85,8 +84,8 @@
             // 
             // SelectSpring
             // 
-            this.SelectSpring.BackColor = System.Drawing.Color.Transparent;
-            this.SelectSpring.Image = ((System.Drawing.Image)(resources.GetObject("SelectSpring.Image")));
+            this.SelectSpring.BackColor = System.Drawing.Color.Gray;
+            this.SelectSpring.Image = global::GetDressed.Properties.Resources.sprcomf;
             this.SelectSpring.Location = new System.Drawing.Point(118, 337);
             this.SelectSpring.Name = "SelectSpring";
             this.SelectSpring.Size = new System.Drawing.Size(63, 92);
@@ -97,9 +96,9 @@
             // 
             // SelectWinterSuit
             // 
-            this.SelectWinterSuit.BackColor = System.Drawing.Color.Transparent;
+            this.SelectWinterSuit.BackColor = System.Drawing.Color.Gray;
             this.SelectWinterSuit.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.SelectWinterSuit.Image = ((System.Drawing.Image)(resources.GetObject("SelectWinterSuit.Image")));
+            this.SelectWinterSuit.Image = global::GetDressed.Properties.Resources.wincomf;
             this.SelectWinterSuit.Location = new System.Drawing.Point(198, 337);
             this.SelectWinterSuit.Name = "SelectWinterSuit";
             this.SelectWinterSuit.Size = new System.Drawing.Size(55, 92);
@@ -110,8 +109,8 @@
             // 
             // SelectSummer
             // 
-            this.SelectSummer.BackColor = System.Drawing.Color.Transparent;
-            this.SelectSummer.Image = ((System.Drawing.Image)(resources.GetObject("SelectSummer.Image")));
+            this.SelectSummer.BackColor = System.Drawing.Color.Gray;
+            this.SelectSummer.Image = global::GetDressed.Properties.Resources.sumcomf;
             this.SelectSummer.Location = new System.Drawing.Point(49, 337);
             this.SelectSummer.Name = "SelectSummer";
             this.SelectSummer.Size = new System.Drawing.Size(51, 92);
@@ -144,12 +143,11 @@
             this.TempLabel.TabIndex = 12;
             this.TempLabel.Text = "0°";
             this.TempLabel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.TempLabel.Click += new System.EventHandler(this.TempLabel_Click);
             // 
             // Body
             // 
             this.Body.BackColor = System.Drawing.Color.Transparent;
-            this.Body.Image = ((System.Drawing.Image)(resources.GetObject("Body.Image")));
+            this.Body.Image = global::GetDressed.Properties.Resources.sumcomf;
             this.Body.Location = new System.Drawing.Point(93, 91);
             this.Body.Name = "Body";
             this.Body.Size = new System.Drawing.Size(106, 240);
@@ -160,7 +158,7 @@
             // pictureBox1
             // 
             this.pictureBox1.BackColor = System.Drawing.Color.Transparent;
-            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Image = global::GetDressed.Properties.Resources.temp;
             this.pictureBox1.Location = new System.Drawing.Point(247, 26);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(26, 26);
@@ -170,7 +168,7 @@
             // pictureBox2
             // 
             this.pictureBox2.BackColor = System.Drawing.Color.Transparent;
-            this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
+            this.pictureBox2.Image = global::GetDressed.Properties.Resources.rain;
             this.pictureBox2.Location = new System.Drawing.Point(247, 183);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(28, 38);
@@ -181,7 +179,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
+            this.BackgroundImage = global::GetDressed.Properties.Resources.warmdry;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(304, 441);
             this.Controls.Add(this.pictureBox2);
